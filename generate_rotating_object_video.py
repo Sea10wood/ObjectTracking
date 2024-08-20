@@ -1,5 +1,3 @@
-from video_tracking import track_in_video
-from webcam_tracking import track_in_webcam
 import cv2
 import numpy as np
 
@@ -25,18 +23,5 @@ def create_rotating_video(output_file, num_frames=360):
     out.release()
     cv2.destroyAllWindows()
 
-def main():
-    mode = input("Choose mode (1: Video File, 2: Webcam, 3: Generate Rotating Video): ")
-    if mode == "1":
-        track_in_video('videos/flower.mp4')
-    elif mode == "2":
-        track_in_webcam()
-    elif mode == "3":
-        output_file = 'videos/rotating_object.avi'
-        create_rotating_video(output_file)
-        print(f"Rotating object video created: {output_file}")
-    else:
-        print("Invalid choice.")
-
 if __name__ == "__main__":
-    main()
+    create_rotating_video('rotating_object.avi')
